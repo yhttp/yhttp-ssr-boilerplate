@@ -18,6 +18,8 @@ endif
 include $(PYTHON_MAKELIB_PATH)/venv-lint-test-webapi.mk
 
 NPM = pnpm
+APPCLI_FLAGS = -Odebug=True
+APPCLI = $(PREFIX)/bin/$(PKG_NAME) $(APPCLI_FLAGS)
 ENV_DEPS += www-env
 
 .PHONY: www-env
@@ -50,3 +52,16 @@ run:
 		--watch-excludedirectory 'yhttp_ssr_boilerplate/templates/*' \
 		--watch-excludefile '*.md' \
 		--subprocess "$(NPM) run dev"
+
+.PHONY: db-drop
+db-drop:
+	- $(APPCLI) db drop
+	- rm -rf .var/media
+
+.PHONY: db
+db: db-drop
+	$(APPCLI) db create
+	$(APPCLI) db objects create
+	$(APPCLI) db basedata insert
+	$(APPCLI) db mockup insert
+	$(APPCLI) db migration set last
