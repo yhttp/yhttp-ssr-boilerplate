@@ -1,0 +1,12 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+.coverage
+.coverage.*
+.pytest_cache/
+.var/
+activate.sh
+build/
+dist/
+node_modules/
+pnpm-lock.yaml

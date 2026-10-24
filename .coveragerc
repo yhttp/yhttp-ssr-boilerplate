@@ -1,0 +1,9 @@
+[run]
+source = yhttp_ssr_boilerplate
+patch = subprocess
+
+[report]
+show_missing = True
+skip_covered = True
+exclude_lines =
+    pragma: no cover

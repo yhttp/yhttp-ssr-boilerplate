@@ -1,0 +1,32 @@
+@import 'tailwindcss';
+@source '../yhttp_ssr_boilerplate/templates/**/*.mako';
+
+:root {
+  color: #101828;
+  background: #f6f7fb;
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  width: min(72rem, calc(100% - 2rem));
+  min-height: 100vh;
+  margin: 0 auto;
+}
+
+.site-header {
+  padding-block: 1.5rem;
+}
+
+.brand {
+  color: inherit;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.home {
+  padding-block: 5rem;
+}
